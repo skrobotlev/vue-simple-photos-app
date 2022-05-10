@@ -1,7 +1,9 @@
 <template>
   <v-container>
     <!--     <Photo v-for="photo in photos" v-bind:photo="photo" /> -->
-    <PhotoForm @addPhoto="addPhoto" />
+    <!-- <PhotoForm v-show="dialogsVisible" @addPhoto="addPhoto" /> -->
+    <PhotoForm v-if="photos.length < 11" @addPhoto="addPhoto" />
+    <div v-else>You Cannot add photos</div>
     <v-row>
       <Photo @openPhoto="openPhoto" v-for="photo in photos" :photo="photo" />
     </v-row>
